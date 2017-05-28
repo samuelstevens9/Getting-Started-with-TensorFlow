@@ -1,6 +1,8 @@
- Import libraries for simulation
+# Import libraries for simulation
 import tensorflow as tf
 import numpy as np
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
      
 
@@ -22,14 +24,14 @@ ns = tf.Variable(tf.zeros_like(c, "float32"))
 #c = complex(0.0,0.75)
 #c = complex(-1.5,-1.5)
 sess = tf.InteractiveSession()
-tf.initialize_all_variables().run()
+tf.global_variables_initializer().run()
 
 # Compute the new values of z: z^2 + x
 zs_ = zs*zs + c
 #zs_ = zs*zs - c
 
 # Have we diverged with this new value?
-not_diverged = tf.complex_abs(zs_) < 4
+not_diverged = tf.abs(zs_) < 4
 
 step = tf.group(
   zs.assign(zs_),
