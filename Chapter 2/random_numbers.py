@@ -1,4 +1,6 @@
 import tensorflow as tf
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
 # Create a tensor of shape [100] consisting of random normal values, with mean

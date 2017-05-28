@@ -2,6 +2,8 @@
 
 
 #STEP 1 --- PREPARE THE DATA
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.image as mp_image
 filename = "packt.jpeg"
 input_image = mp_image.imread(filename)
